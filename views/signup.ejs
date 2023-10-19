@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Singup</title>
+    <style>
+        .heading{
+            text-align: center;
+        }
+
+        .form-div{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+    </style>
+</head>
+<body>
+    <h1 class="heading">Singup</h1>
+
+    <div class="form-div">
+        <form action="/user" method="post">
+            <label>Full Name</label>
+            <input type="text" name="name" placeholder="Dharmendra Singh">
+
+            <label>email</label>
+            <input type="text" name="email" placeholder="drs@gmail.com">
+
+            <label>password</label>
+            <input type="text" name="password" placeholder="*******">
+
+            <button type="submit">Signup</button>
+        </form>
+    </div>
+</body>
+</html>

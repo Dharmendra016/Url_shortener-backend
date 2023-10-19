@@ -1,6 +1,5 @@
 const express = require("express");
 const app = express() ; 
-const ejs = require("ejs");
 const path = require("path");
 
 app.set('view engine', 'ejs');
@@ -17,11 +16,13 @@ const {dbConnect} = require("./configs/database");
 dbConnect();
 
 const route = require("./routes/route");
-app.use('/url' , route);
+const staticroute = require("./routes/staticroute");
+const signup = require("./routes/signup");
 
-app.get("/" , (req ,res )=>{
-    res.render('home');
-})
+app.use('/url' , route);
+app.use(staticroute);
+app.use("/user" , signup);
+
 
 app.listen(PORT , () => {
     console.log("server started at port no :" , PORT) ; 
