@@ -12,6 +12,7 @@ exports.redirectController = async (req , res) => {
             }}
         } , {new:true})
         console.log(dataFromDatabase.redirectURL);
+        // return res.render('home' , {id:shortId});
         res.redirect(dataFromDatabase.redirectURL);
         
     }catch(err){

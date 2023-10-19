@@ -20,14 +20,14 @@ exports.generateNewShortUrl = async ( req , res ) => {
             redirectURL:body.url,
             visitHistory:[],
         })
-
-        res.status(200).json(
-            {
-                success:true, 
-                data:shortId,
-                message:"successfully created.",
-            }
-        )
+        return res.render('home' , {id:shortId});
+        // res.status(200).json(
+        //     {
+        //         success:true, 
+        //         data:shortId,
+        //         message:"successfully created.",
+        //     }
+        // )
     }catch(err){
         console.log(err);
         res.status(500).json({

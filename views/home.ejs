@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Url_shortener</title>
+
+    <style>
+        .main-div{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+    </style>
+</head>
+<body>
+        
+    <div class="main-div">
+        <h1>URL Shortener</h1><br>
+        <form action="/url" method="post">
+            <label>Enter URL:</label>
+            <input type="text" name="url" placeholder= "http://www.example.com" >
+            <button type="submit">Generate</button>
+           <% if (locals.id) { %>
+                <p>Your generated id is: <%= id %></p>
+           <% } %>
+        </form>
+    </div>
+
+
+</body>
+</html>
