@@ -1,5 +1,6 @@
 const User = require("../models/user");
-
+const { v4: uuidv4 } = require('uuid');
+const { setUser} = require("../services/auth");
 
 exports.userCreationHandeler = async (req ,res ) => {
 
@@ -22,5 +23,23 @@ exports.userCreationHandeler = async (req ,res ) => {
             error:err.message,
         })
     }
+
+}
+
+exports.userLoginHandeler = async (req , res ) => {
+    const {email , password } = req.body; 
+
+    const dataUser = await User.findOne({email , password});
+    console.log(dataUser);
+
+    if(!dataUser){
+        return res.render("login");
+    }
+
+    const sessionId = uuidv4();
+    setUser(sessionId  , dataUser);
+    res.cookie("uid" , sessionId);
+
+    return res.redirect("/");
 
 }

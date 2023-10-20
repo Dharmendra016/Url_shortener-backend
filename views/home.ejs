@@ -12,6 +12,10 @@
             justify-content: center;
             flex-direction: column;
         }
+
+        table, th, td {
+  border: 1px solid black;
+}
     </style>
 </head>
 <body>
@@ -24,6 +28,28 @@
             <button type="submit">Generate</button>
            <% if (locals.id) { %>
                 <p>Your generated id is: <%= id %></p>
+           <% } %>
+           <% if (locals.data) { %>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>S.N</th>
+                            <th>RedirectURL</th>
+                            <th>ShortId</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% data.forEach(element => { %>
+                         <tr>
+                            <th><%= element.id %></th>
+                            <th><%= element.redirectURL %></th>
+                            <th><%= element.shortId %></th>
+                         </tr>
+                        <% }) %>
+                    </tbody>
+
+                </table>
+
            <% } %>
         </form>
     </div>

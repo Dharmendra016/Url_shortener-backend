@@ -9,18 +9,22 @@ exports.generateNewShortUrl = async ( req , res ) => {
         const body = req.body;
         
         if( !body.url ){
-            res.status(400).json({
+            return res.status(400).json({
                 success:false,
                 error:"url is not entered !.",
             })
-        }
+        }else{
+
         
-        await Url.create({
-            shortId:shortId ,
-            redirectURL:body.url,
-            visitHistory:[],
-        })
-        return res.render('home' , {id:shortId});
+            await Url.create({
+                shortId:shortId ,
+                redirectURL:body.url,
+                visitHistory:[],
+                createdBy:req.user._id,
+            })
+            return res.render('home' , {id:shortId});
+                    
+        }
         // res.status(200).json(
         //     {
         //         success:true, 
