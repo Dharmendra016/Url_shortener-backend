@@ -4,10 +4,12 @@ const path = require("path");
 const cookieParser = require("cookie-parser");
 const {restrictToLoggedInUserOnly , checkAuth} = require("./middleware/auth");
 
-
+//ejs setup ko lagi 
 app.set('view engine', 'ejs');
 app.set("views", path.resolve("./views"));
 
+
+//sabai parser ko lagi 
 app.use(express.json());
 app.use(express.urlencoded({extended:false}));
 app.use(cookieParser());

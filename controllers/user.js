@@ -36,9 +36,9 @@ exports.userLoginHandeler = async (req , res ) => {
         return res.render("login");
     }
 
-    const sessionId = uuidv4();
-    setUser(sessionId  , dataUser);
-    res.cookie("uid" , sessionId);
+    const token = setUser(dataUser);
+    console.log("tokens " , token);
+    res.cookie("uid" , token);
 
     return res.redirect("/");
 
